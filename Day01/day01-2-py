@@ -39,7 +39,7 @@ def fileRead(path):
     return (list1, list2)
 
 # Read file and sort lists
-lists = fileRead("D:/_sasha/Documents/Programming/Advent of Code 2024/Day 1/input.txt")
+lists = fileRead("Day01/input.txt")
 list1 = sorted(lists[0])
 list2 = sorted(lists[1])
 
