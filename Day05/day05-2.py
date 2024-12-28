@@ -56,9 +56,9 @@ def get_updates(path):
 
     return tuple(updates)
 
-def get_correct_updates(rules, updates):
+def get_incorrect_updates(rules, updates):
 
-    correct_updates = []
+    incorrect_updates = []
 
     for i in range(len(updates)):
         # For each update we want all the applicable rules
@@ -76,18 +76,18 @@ def get_correct_updates(rules, updates):
             if updates[i].index(first) > updates[i].index(last):
                 update_is_valid = False
 
-        if update_is_valid:
-            correct_updates.append(updates[i])
+        if not update_is_valid:
+            incorrect_updates.append(updates[i])
 
-    return correct_updates
+    return incorrect_updates
 
 rules = get_rules(path)
 updates = get_updates(path)
-correct_updates = get_correct_updates(rules, updates)
+incorrect_updates = get_incorrect_updates(rules, updates)
 
 middle_sum = 0
 
-for update in correct_updates:
+for update in incorrect_updates:
     middle_sum += update[int(len(update) / 2)]
 
-print(middle_sum)
+print(incorrect_updates)
